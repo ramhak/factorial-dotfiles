@@ -10,4 +10,4 @@ source ~/.config/bash/prompt.bash
 export EDITOR=nvim
 
 # Set the vi mode for bash
-set -o vi
+# set -o vi
