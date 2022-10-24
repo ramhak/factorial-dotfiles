@@ -1,10 +1,25 @@
-set keymap vi
-set editing-mode vi
+$include /etc/inputrc
 
-$if mode=vi
-  set keymap vi-command
-  Control-l: clear-screen
+set show-all-if-ambiguous On
+set show-all-if-unmodified On
+set completion-ignore-case On
+set visible-stats On 
+set mark-symlinked-directories On
+set colored-stats On
+set colored-completion-prefix On
+set menu-complete-display-prefix On
 
-  set keymap vi-insert
-  Control-l: clear-screen
-$endif
+"\e[A": history-search-backward
+"\eOA": history-search-backward
+"\e[B": history-search-forward
+"\eOB": history-search-forward
+"\M-s": menu-complete
+Control-n: history-search-forward
+Control-p: history-search-backward
+TAB:menu-complete
+"\e[1;5D": backward-word
+"\e[1;5C": forward-word
+"\e\C-l": "\C-e | less\C-m"
+"\e\C-g": "\C-e | grep -i "
+"\e\C-f": "\C-e | fzf\C-m"
+"\e\s": "\C-asudo \C-e"
